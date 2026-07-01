@@ -108,14 +108,14 @@ export const skills = [
   "Prompt Engineering",
 ];
 
-import googleLogo from "@/assets/logos/google.webp.asset.json";
-import googleDarkLogo from "@/assets/logos/google-dark.webp.asset.json";
-import harvardxLogo from "@/assets/logos/harvard.webp.asset.json";
-import harvardDarkLogo from "@/assets/logos/harvard-dark.webp.asset.json";
-import lseLogo from "@/assets/logos/lse.webp.asset.json";
-import lseDarkLogo from "@/assets/logos/lse-dark.webp.asset.json";
-import umdLogo from "@/assets/logos/umd.png.asset.json";
-import ibmLogo from "@/assets/logos/ibm-logo.png.asset.json";
+import googleLogo from "@/assets/logos/google.webp";
+import googleDarkLogo from "@/assets/logos/google-dark.webp";
+import harvardxLogo from "@/assets/logos/harvard.webp";
+import harvardDarkLogo from "@/assets/logos/harvard-dark.webp";
+import lseLogo from "@/assets/logos/lse.webp";
+import lseDarkLogo from "@/assets/logos/lse-dark.webp";
+import umdLogo from "@/assets/logos/umd.png";
+import ibmLogo from "@/assets/logos/ibm-logo.png";
 
 export const experience = [
   {
@@ -142,10 +142,10 @@ export const experience = [
 ];
 
 export const certifications = [
-  { title: "Prompt Design in Vertex AI", issuer: "Google", year: "2024", logo: googleLogo.url, logoDark: googleDarkLogo.url },
-  { title: "Exercising Leadership: Foundational Principles", issuer: "HarvardX", year: "2024", logo: harvardxLogo.url, logoDark: harvardDarkLogo.url },
-  { title: "Intercultural Communications in the Workplace", issuer: "LSE", year: "2024", logo: lseLogo.url, logoDark: lseDarkLogo.url },
-  { title: "Project Management Principles", issuer: "University System of Maryland", year: "2024", logo: umdLogo.url },
-  { title: "Enterprise Design Thinking Practitioner", issuer: "IBM", year: "2024", logo: ibmLogo.url },
+  { title: "Prompt Design in Vertex AI", issuer: "Google", year: "2024", logo: googleLogo, logoDark: googleDarkLogo },
+  { title: "Exercising Leadership: Foundational Principles", issuer: "HarvardX", year: "2024", logo: harvardxLogo, logoDark: harvardDarkLogo },
+  { title: "Intercultural Communications in the Workplace", issuer: "LSE", year: "2024", logo: lseLogo, logoDark: lseDarkLogo },
+  { title: "Project Management Principles", issuer: "University System of Maryland", year: "2024", logo: umdLogo },
+  { title: "Enterprise Design Thinking Practitioner", issuer: "IBM", year: "2024", logo: ibmLogo },
 ];
 

@@ -12,8 +12,8 @@ import { ExperienceScrolls } from "@/components/samurai/ExperienceScrolls";
 
 import { moreRepos } from "@/data/moreRepos";
 
-import portraitTradition from "@/assets/about-poster.jpeg.asset.json";
-import samuraiPoster from "@/assets/samurai-poster.jpeg.asset.json";
+import portraitTradition from "@/assets/about-poster.jpeg";
+import samuraiPoster from "@/assets/samurai-poster.jpeg";
 import {
   site,
   heroStats,
@@ -87,7 +87,7 @@ function Index() {
             </p>
             <div className="mt-10 overflow-hidden border border-border">
               <img
-                src={portraitTradition.url}
+                src={portraitTradition}
                 alt="Aravind Pyli — AIML Engineer editorial poster"
                 className="h-full w-full object-cover"
                 loading="lazy"
@@ -411,7 +411,7 @@ function Index() {
           {/* RIGHT — the poster itself */}
           <div className="relative order-1 mx-auto w-full max-w-[340px] sm:max-w-[440px] md:order-2 md:max-w-[560px]">
             <img
-              src={samuraiPoster.url}
+              src={samuraiPoster}
               alt="Aravind Pyli — samurai portrait"
               className="h-auto w-full"
               style={{ mixBlendMode: "multiply" }}
