@@ -1,0 +1,109 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-samurai-black: var(--samurai-black);
+  --color-charcoal-gray: var(--charcoal-gray);
+  --color-blade-silver: var(--blade-silver);
+  --color-bright-steel: var(--bright-steel);
+  --color-blood-red: var(--blood-red);
+
+  --font-display: "Cinzel", serif;
+  --font-sans: "Noto Sans JP", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+:root {
+  --radius: 0.25rem;
+
+  --samurai-black: oklch(0.14 0 0);
+  --charcoal-gray: oklch(0.22 0 0);
+  --blade-silver: oklch(0.83 0.005 250);
+  --bright-steel: oklch(0.92 0.003 250);
+  --blood-red: oklch(0.42 0.18 25);
+
+  --background: var(--samurai-black);
+  --foreground: var(--blade-silver);
+  --card: var(--charcoal-gray);
+  --card-foreground: var(--blade-silver);
+  --popover: var(--charcoal-gray);
+  --popover-foreground: var(--blade-silver);
+  --primary: var(--bright-steel);
+  --primary-foreground: var(--samurai-black);
+  --secondary: oklch(0.28 0 0);
+  --secondary-foreground: var(--blade-silver);
+  --muted: oklch(0.22 0 0);
+  --muted-foreground: oklch(0.6 0.005 250);
+  --accent: var(--blood-red);
+  --accent-foreground: var(--bright-steel);
+  --destructive: var(--blood-red);
+  --destructive-foreground: var(--bright-steel);
+  --border: oklch(0.28 0.003 250);
+  --input: oklch(0.28 0.003 250);
+  --ring: var(--blade-silver);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    background-color: var(--color-background);
+    color-scheme: dark;
+    scroll-behavior: smooth;
+  }
+  section[id] {
+    scroll-margin-top: 4rem;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background-color: var(--color-blade-silver);
+    color: var(--color-samurai-black);
+  }
+}
+
+@utility font-display {
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+}
+@utility hairline {
+  background-color: color-mix(in oklab, var(--color-blade-silver) 22%, transparent);
+}
