@@ -1,6 +1,13 @@
+<<<<<<< HEAD
 import { useEffect, useRef } from "react";
 import { useMotionValueEvent, type MotionValue } from "framer-motion";
 import { phases } from "@/data/samuraiData";
+=======
+import { useEffect, useRef, useState } from "react";
+import { useMotionValueEvent, type MotionValue } from "framer-motion";
+import { phases } from "@/data/samuraiData";
+import TypingText from "@/components/TypingText";
+>>>>>>> f6fc99b (ui changes)
 
 interface Props {
   scrollYProgress: MotionValue<number>;
@@ -22,9 +29,17 @@ export function SamuraiExperience({ scrollYProgress }: Props) {
   const stanceRef = useRef<HTMLDivElement | null>(null);
   const slashRef = useRef<HTMLDivElement | null>(null);
   const warningRef = useRef<HTMLDivElement | null>(null);
+<<<<<<< HEAD
 
   const apply = (p: number) => {
     const stance = bandOpacity(p, 0.02, 0.28);
+=======
+  const [typingEnabled, setTypingEnabled] = useState(true);
+
+  const apply = (p: number) => {
+    const stance = bandOpacity(p, 0.02, 0.28);
+    setTypingEnabled(stance > 0.05);
+>>>>>>> f6fc99b (ui changes)
     const slash = bandOpacity(p, 0.36, 0.6);
     const warning = bandOpacity(p, 0.68, 0.98);
 
@@ -71,14 +86,37 @@ export function SamuraiExperience({ scrollYProgress }: Props) {
         style={{ opacity: 1, willChange: "opacity, transform" }}
         className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center"
       >
+<<<<<<< HEAD
         <span className="mb-6 font-mono text-[10px] tracking-[0.5em] text-muted-foreground">
           {phases.stance.kicker}
+=======
+        <span className="mb-6 font-mono text-[10px] tracking-[0.5em] text-[#B4B4B4]" style={{
+    textShadow: "0 1px 3px rgba(0,0,0,0.8)",
+  }}>
+          <>
+  Welcome to{" "}
+  <TypingText
+    enabled={typingEnabled}
+    words={[
+      "Aravind Pyli's",
+      "AI Architect's",
+      "ML Engineer's",
+      "Computer Vision Researcher's",
+      "Open Source Contributor's",
+    ]}
+  />
+</>
+>>>>>>> f6fc99b (ui changes)
         </span>
         <h1 className="font-display text-5xl leading-[0.95] text-bright-steel md:text-7xl lg:text-8xl">
           {phases.stance.title}
         </h1>
         <div className="mt-6 h-px w-24 bg-blood-red" />
+<<<<<<< HEAD
         <p className="mt-6 max-w-md text-sm tracking-[0.15em] text-muted-foreground uppercase">
+=======
+        <p className="mt-6 max-w-3xl text-sm tracking-[0.15em] text-[#B4B4B4] uppercase">
+>>>>>>> f6fc99b (ui changes)
           {phases.stance.subtitle}
         </p>
         <span className="mt-16 font-mono text-[10px] tracking-[0.5em] text-blade-silver">
@@ -92,7 +130,11 @@ export function SamuraiExperience({ scrollYProgress }: Props) {
         style={{ opacity: 0, willChange: "opacity, transform" }}
         className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center"
       >
+<<<<<<< HEAD
         <span className="mb-6 font-mono text-[10px] tracking-[0.5em] text-blood-red">
+=======
+        <span className="mb-6 font-mono text-[10px] tracking-[0.5em] text-[#B4B4B4]">
+>>>>>>> f6fc99b (ui changes)
           {phases.slash.kicker}
         </span>
         <h2 className="font-display text-[2.5rem] leading-[1.05] tracking-tight text-bright-steel sm:text-5xl sm:tracking-normal md:text-8xl lg:text-9xl">

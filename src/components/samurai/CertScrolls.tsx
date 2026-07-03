@@ -14,6 +14,7 @@ interface Props {
 }
 
 const CLOSED_H = 56;
+<<<<<<< HEAD
 const OPEN_H = 280;
 const ROW_H = OPEN_H + 40; // reserved vertical slot so open scrolls never overlap neighbours
 
@@ -22,10 +23,15 @@ const ROW_H = OPEN_H + 40; // reserved vertical slot so open scrolls never overl
  * bone-white washi paper, ink-black rods with silver caps, single blood-red seal.
  * Each cell reserves the fully-unfurled height so opening one never overlaps another.
  */
+=======
+const OPEN_H = 220;
+
+>>>>>>> f6fc99b (ui changes)
 export function CertScrolls({ certifications }: Props) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
+<<<<<<< HEAD
     <div className="grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-3 md:gap-x-8 lg:grid-cols-4">
       {certifications.map((c, i) => {
         const isOpen = openIndex === i;
@@ -36,10 +42,20 @@ export function CertScrolls({ certifications }: Props) {
             style={{ height: ROW_H }}
           >
             <button
+=======
+    <div className="grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-3 md:gap-x-8 lg:grid-cols-4 items-start">
+      {certifications.map((c, i) => {
+        const isOpen = openIndex === i;
+
+        return (
+          <motion.div key={c.title} className="flex justify-center" layout>
+            <motion.button
+>>>>>>> f6fc99b (ui changes)
               type="button"
               onClick={() => setOpenIndex(isOpen ? null : i)}
               onMouseEnter={() => setOpenIndex(i)}
               onFocus={() => setOpenIndex(i)}
+<<<<<<< HEAD
               className="group absolute inset-x-0 top-0 flex flex-col items-center outline-none focus-visible:ring-1 focus-visible:ring-[var(--color-blade-silver)]"
               aria-expanded={isOpen}
               aria-label={`${c.title} — ${c.issuer}, ${c.year}`}
@@ -179,6 +195,127 @@ export function CertScrolls({ certifications }: Props) {
               </div>
             </button>
           </div>
+=======
+              className="group w-full flex flex-col items-center outline-none focus-visible:ring-1 focus-visible:ring-[var(--color-blade-silver)]"
+              aria-expanded={isOpen}
+            >
+              <Rod />
+
+              {/* FIXED CONTAINER HEIGHT (prevents flash) */}
+              <motion.div
+                className="relative w-full overflow-hidden"
+                animate={{
+                  height: isOpen ? OPEN_H : CLOSED_H,
+                }}
+                transition={{ duration: 0.35, ease: "easeInOut" }}
+                style={{ transformOrigin: "top center" }}
+              >
+                <div
+                  className="relative w-full h-full"
+                  style={{
+                    background:
+                      "linear-gradient(180deg, #e8dfc8 0%, #d6c9a8 50%, #c4b48a 100%)",
+                    boxShadow:
+                      "inset 0 0 40px rgba(10,8,4,0.45), inset 0 2px 6px rgba(0,0,0,0.35)",
+                  }}
+                >
+                  {/* Texture */}
+                  <div
+                    className="absolute inset-0 opacity-[0.22] mix-blend-multiply"
+                    style={{
+                      backgroundImage:
+                        "repeating-linear-gradient(180deg, rgba(20,14,6,0.6) 0px, transparent 1px, transparent 5px), repeating-linear-gradient(90deg, rgba(20,14,6,0.4) 0px, transparent 1px, transparent 11px)",
+                    }}
+                  />
+
+                  <div className="absolute inset-x-4 top-3 h-px bg-[#0f0a04]/80" />
+                  <div className="absolute inset-x-4 bottom-3 h-px bg-[#0f0a04]/80" />
+
+                  {/* CLOSED */}
+                  {!isOpen && (
+                    <div className="flex items-center justify-center gap-2 h-full">
+                      {(c.logoDark || c.logo) && (
+                        <img
+                          src={c.logoDark || c.logo}
+                          alt=""
+                          className="h-5 w-5 rounded-full bg-[#f5efdf] object-contain p-0.5 ring-1 ring-[#0f0a04]/70"
+                        />
+                      )}
+                      <span className="font-mono text-[10px] font-bold uppercase tracking-[0.5em] text-[#1a0f02]">
+                        {c.year}
+                      </span>
+                    </div>
+                  )}
+
+                  {/* OPEN */}
+                  <AnimatePresence>
+                    {isOpen && (
+                      <motion.div
+                        key="open"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="relative flex flex-col items-center justify-between px-4 py-5 text-center h-full"
+                      >
+                        {/* FIX: image does NOT affect layout + fades in */}
+                        {(c.logoDark || c.logo) && (
+                          <motion.img
+                            src={c.logoDark || c.logo}
+                            alt=""
+                            initial={{ opacity: 0, scale: 0.98 }}
+                            animate={{ opacity: 0.7, scale: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.25 }}
+                            className="pointer-events-none absolute left-1/2 top-1/2 h-32 w-32 -translate-x-1/2 -translate-y-1/2 object-contain mix-blend-multiply"
+                          />
+                        )}
+
+                        <span className="font-mono text-[9px] font-bold uppercase tracking-[0.4em] text-[#1a0f02]">
+                          {c.issuer}
+                        </span>
+
+                        <h3
+                          className="font-display text-[13px] md:text-sm leading-tight px-2"
+                          style={{
+                            color: "#0a0500",
+                            letterSpacing: "0.08em",
+                          }}
+                        >
+                          {c.title}
+                        </h3>
+
+                        <span
+                          className="flex h-9 w-9 items-center justify-center font-mono text-[10px] font-bold tracking-widest"
+                          style={{
+                            background: "var(--color-blood-red)",
+                            color: "#ece4d3",
+                            boxShadow:
+                              "0 1px 3px rgba(0,0,0,0.5), inset 0 0 6px rgba(0,0,0,0.35)",
+                            borderRadius: 2,
+                          }}
+                        >
+                          {c.year.slice(-2)}
+                        </span>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </motion.div>
+
+              {/* Bottom rod */}
+              <div className="flex justify-center">
+                <Rod />
+              </div>
+
+              {/* Tassel */}
+              <div className="flex flex-col items-center">
+                <div className="h-4 w-px bg-[var(--color-blood-red)]" />
+                <div className="h-3 w-1.5 rounded-b-full bg-gradient-to-b from-[var(--color-blood-red)] to-[#2a0808]" />
+              </div>
+            </motion.button>
+          </motion.div>
+>>>>>>> f6fc99b (ui changes)
         );
       })}
     </div>
@@ -216,4 +353,8 @@ function Cap({ side }: { side: "left" | "right" }) {
       }}
     />
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> f6fc99b (ui changes)

@@ -131,7 +131,7 @@ export function ArsenalRing({ skills }: Props) {
       </motion.div>
 
       <div className="pointer-events-none absolute bottom-4 left-1/2 -translate-x-1/2 font-mono text-[10px] tracking-[0.4em] uppercase text-muted-foreground">
-        Drag · Auto-rotating
+        Engineering · Stack
       </div>
     </div>
   );

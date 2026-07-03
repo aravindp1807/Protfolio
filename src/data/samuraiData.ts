@@ -14,11 +14,16 @@ export const site = {
 export const phases = {
   stance: {
     kicker: "I · Aravind Pyli · AI Architect",
+<<<<<<< HEAD
     title: "Building\nIntelligence.",
+=======
+    title: "Building\nIntelligence",
+>>>>>>> f6fc99b (ui changes)
     subtitle: "Machine Learning · Computer Vision · Research Systems",
     cta: "Witness the Work",
   },
   slash: {
+<<<<<<< HEAD
     kicker: "II · One Discipline",
     title: "Code.\nCreate.\nContribute.",
     subtitle: "Precision. Weight. Intent.",
@@ -26,6 +31,15 @@ export const phases = {
   warning: {
     kicker: "III · The Practice",
     title: "Research-led.\nProduct-minded.",
+=======
+    kicker: "One Discipline",
+    title: "Code.\nCreate.\nContribute",
+    subtitle: "Precision - Weight - Intent",
+  },
+  warning: {
+    kicker: "The Practice",
+    title: "Research-led \nProduct-minded",
+>>>>>>> f6fc99b (ui changes)
     specs: [
       { label: "Focus", value: "ML & Computer Vision" },
       { label: "Path", value: "AI + AI-Agentic system\u00a0 Development" },
@@ -36,7 +50,11 @@ export const phases = {
 } as const;
 
 export const heroStats = [
+<<<<<<< HEAD
   { label: "Focus", value: "Machine Learning & deep learning &computer Vision" },
+=======
+  { label: "Focus", value: "Machine Learning & deep learning & computer Vision" },
+>>>>>>> f6fc99b (ui changes)
   { label: "Current Path", value: "AI + AI-Agentic system\u00a0 Development" },
   { label: "Approach", value: "Research-led, product-minded" },
 ];
