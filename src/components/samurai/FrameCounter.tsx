@@ -14,7 +14,7 @@ export function FrameCounter({
   });
   const pad = (n: number) => String(n).padStart(3, "0");
   return (
-    <div className="pointer-events-none absolute bottom-6 left-6 z-30 flex items-center gap-3 font-mono text-[10px] tracking-[0.3em] text-blade-silver">
+    <div className="pointer-events-none absolute bottom-6 left-6 z-0 flex items-center gap-3 font-mono text-[10px] tracking-[0.3em] text-blade-silver">
       <span className="h-1 w-1 rounded-full bg-blood-red" />
       <span>FRAME {pad(frame)} / {pad(totalFrames)}</span>
     </div>

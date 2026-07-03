@@ -100,7 +100,7 @@ export function SamuraiScrollCanvas({ scrollYProgress, totalFrames, framePath }:
     const scale = Math.min(cw / iw, ch / ih);
     const dw = iw * scale;
     const dh = ih * scale;
-    const dx = (cw - dw) / 2;
+    const dx = (cw - dw) * 1.45;
     const dy = (ch - dh) / 2;
     ctx.imageSmoothingEnabled = true;
     ctx.imageSmoothingQuality = "high";
@@ -127,10 +127,18 @@ export function SamuraiScrollCanvas({ scrollYProgress, totalFrames, framePath }:
   return (
     <>
       <canvas
-        ref={canvasRef}
-        className="absolute inset-0 h-full w-full"
-        style={{ display: "block" }}
-      />
+  ref={canvasRef}
+  className="absolute inset-0 h-full w-full"
+  style={{ display: "block" }}
+/>
+
+<div
+  className="pointer-events-none absolute inset-0"
+  style={{
+    background:
+      "radial-gradient(ellipse at center, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0.75) 100%)",
+  }}
+/>
       {!ready && (
         <div className="absolute inset-0 flex items-center justify-center bg-samurai-black">
           <div className="flex flex-col items-center gap-3">
